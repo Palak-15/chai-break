@@ -45,7 +45,7 @@ Inside any iframe, the SDK assumes it is on YouTube, and reports audio as off, w
 | No outside calls | No network requests, analytics, links, logins or personal data |
 | Touch and mouse, any shape | Pointer events and a stage that scales to any viewport; orientation isn't locked |
 | Bundle size | Well under the 15 MiB recommended initial size |
-| End of content | The menu says when all five are done and more are coming |
+| End of content | The menu says when every level is done and more are coming |
 | No real-world value | Coins only exist inside the game and can't be bought, traded or cashed out |
 | 13+ and original | Not aimed at kids, with no brands, celebrities, film music or third-party assets |
 | English | All in-game text is in English |
