@@ -601,6 +601,7 @@
 
   // ---------- Main loop, paused only by Playables onPause/onResume ----------
 
+  const FRAME_GAP = 400; // Milliseconds without a frame before looping sounds are stopped.
   let raf = 0;
   let last = 0;
   let running = false;
@@ -629,6 +630,13 @@
     CB.audio.tick(dt);
     render();
   }
+
+  // Browsers stop sending frames to a hidden page, which would leave a looping sound
+  // playing. Noticing the gap avoids the Page Visibility API, which Playables bans.
+  // Levels set their loops every frame, so sound returns by itself with the frames.
+  window.setInterval(() => {
+    if (running && performance.now() - last > FRAME_GAP) CB.audio.stopLoops();
+  }, 200);
 
   CB.run = function () {
     if (running) return;
